@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_4765046cbb984dabb9a72f3fa553d4c2 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://rawcdn.githack.com/ljagis/leaflet-measure/2.1.7/dist/leaflet-measure.js"></script>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/ljagis/leaflet-measure/2.1.7/dist/leaflet-measure.css"/>
+    
+                <style>
+                    #float_image_e5e598673c47435cb5013aa4f723e553 {
+                        position:absolute;
+                        bottom:1.5%;
+                        left:0%;
+                        }
+                </style>
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+    <script src="https://rawcdn.githack.com/ardhi/Leaflet.MousePosition/c32f1c84/src/L.Control.MousePosition.js"></script>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/ardhi/Leaflet.MousePosition/c32f1c84/src/L.Control.MousePosition.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_4765046cbb984dabb9a72f3fa553d4c2" ></div>
+    
+            <img id="float_image_e5e598673c47435cb5013aa4f723e553" alt="float_image"
+                 src="https://raw.githubusercontent.com/SECOORA/static_assets/master/maps/img/rose.png"
+                 style="z-index: 999999">
+            </img>
+            
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_4765046cbb984dabb9a72f3fa553d4c2 = L.map(
+        'map_4765046cbb984dabb9a72f3fa553d4c2', {
+        center: [24.3970610305272, 120.365602883822],
+        zoom: 10,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_3ada11cd6c774e68b8f10868b991f5c1 = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+        "attribution": "Copyright: \u00a9 Chen, Chi-Wei | Map data: \u00a9 <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>, <a href=\"http://viewfinderpanoramas.org\">SRTM</a> | Map style: \u00a9 <a href=\"https://opentopomap.org\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC-BY-SA</a>)",
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+    
+
+            var polygon_08d36dc6267b43eaa704e382f9164bff = L.polygon(
+                [[25.32615409, 121.46996409999998], [25.31084659, 121.45743619999999], [25.29219834, 121.44683429999999], [25.27558469, 121.42721399999999], [25.2574441, 121.42147299999999], [25.26042952, 121.4499876], [25.29614358, 121.4883868], [25.30870872, 121.49084029999999], [25.31900972, 121.5071541]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_34c3308739b64b77ad3fe7fd2f040614 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_1f8366ade0614bbe967519f13d8c132c = $(`<div id="html_1f8366ade0614bbe967519f13d8c132c" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：新北市 </h5>             <h5>Area：26.2 </h5>             <h5>No：1</h5>             </p>             </div>`)[0];
+                popup_34c3308739b64b77ad3fe7fd2f040614.setContent(html_1f8366ade0614bbe967519f13d8c132c);
+            
+
+            polygon_08d36dc6267b43eaa704e382f9164bff.bindPopup(popup_34c3308739b64b77ad3fe7fd2f040614)
+            ;
+
+            
+        
+    
+        polygon_08d36dc6267b43eaa704e382f9164bff.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：新北市 </h5>
+            <h5>Area：26.2 </h5>
+            <h5>No：1</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_3cbfad7f9a3f45138fc816408ff9db7f = L.polygon(
+                [[25.12047661, 121.08503290000002], [25.11859323, 121.08], [25.11604842, 121.07432150000001], [25.09091377, 121.0394564], [25.08037003, 121.0305519], [25.07101017, 121.01669629999999], [25.06324046, 121.00712949999999], [25.0517954, 120.99670479999999], [25.03913928, 121.0152932], [25.06381617, 121.04751670000002], [25.04783127, 121.06854890000001], [25.07896361, 121.1159611], [25.09235286, 121.1103219], [25.09679022, 121.11155929999998]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_08570d12b096423e9e917f67db770c9c = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_f18edf6163b343eeaf5a82f8a690b1fd = $(`<div id="html_f18edf6163b343eeaf5a82f8a690b1fd" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：桃園市 </h5>             <h5>Area：50.2 </h5>             <h5>No：2</h5>             </p>             </div>`)[0];
+                popup_08570d12b096423e9e917f67db770c9c.setContent(html_f18edf6163b343eeaf5a82f8a690b1fd);
+            
+
+            polygon_3cbfad7f9a3f45138fc816408ff9db7f.bindPopup(popup_08570d12b096423e9e917f67db770c9c)
+            ;
+
+            
+        
+    
+        polygon_3cbfad7f9a3f45138fc816408ff9db7f.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：桃園市 </h5>
+            <h5>Area：50.2 </h5>
+            <h5>No：2</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_71d4f4c35440493f9fb5057eaff44f20 = L.polygon(
+                [[24.98259003, 120.95712820000001], [24.96601237, 120.9471399], [24.95438413, 120.9726697], [24.97096007, 120.9823595], [25.00130644, 120.96290309999999], [24.94720877, 120.92836240000001], [24.93771507, 120.9556971], [24.94972296, 120.9670605], [24.9430611, 120.980782], [24.97046897, 121.00517959999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_74693563a5a14ba5b56c50e2e23b6c01 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_159a04860fcc40d499c7d5684a589a19 = $(`<div id="html_159a04860fcc40d499c7d5684a589a19" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：新竹縣 </h5>             <h5>Area：22.2 </h5>             <h5>No：3</h5>             </p>             </div>`)[0];
+                popup_74693563a5a14ba5b56c50e2e23b6c01.setContent(html_159a04860fcc40d499c7d5684a589a19);
+            
+
+            polygon_71d4f4c35440493f9fb5057eaff44f20.bindPopup(popup_74693563a5a14ba5b56c50e2e23b6c01)
+            ;
+
+            
+        
+    
+        polygon_71d4f4c35440493f9fb5057eaff44f20.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：新竹縣 </h5>
+            <h5>Area：22.2 </h5>
+            <h5>No：3</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_0773fdc0736344a2b0885770848beec2 = L.polygon(
+                [[24.87656582, 120.8638425], [24.84933807, 120.8514811], [24.84188496, 120.85427890000001], [24.79086565, 120.80707679999999], [24.77786094, 120.824325], [24.80844105, 120.8464331], [24.80226366, 120.8612903], [24.79317411, 120.8615873], [24.75142574, 120.8270618], [24.74196798, 120.83617690000001], [24.79762775, 120.87236659999999], [24.80029116, 120.86603329999998], [24.83009132, 120.8776503], [24.84021209, 120.8597882], [24.86843041, 120.8752193]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_04a27b32ff8f440e810761ee4648d88d = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_1a3bb18d507b4f06a1fdaeea237dfd56 = $(`<div id="html_1a3bb18d507b4f06a1fdaeea237dfd56" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：新竹市 </h5>             <h5>Area：31.6 </h5>             <h5>No：4</h5>             </p>             </div>`)[0];
+                popup_04a27b32ff8f440e810761ee4648d88d.setContent(html_1a3bb18d507b4f06a1fdaeea237dfd56);
+            
+
+            polygon_0773fdc0736344a2b0885770848beec2.bindPopup(popup_04a27b32ff8f440e810761ee4648d88d)
+            ;
+
+            
+        
+    
+        polygon_0773fdc0736344a2b0885770848beec2.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：新竹市 </h5>
+            <h5>Area：31.6 </h5>
+            <h5>No：4</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_4c27a989d9d54273b74f8e6f132edf17 = L.polygon(
+                [[24.79040249, 120.80666409999998], [24.741370800000002, 120.7589992], [24.7202717, 120.75546229999999], [24.70444419, 120.73592579999999], [24.69036997, 120.730071], [24.67322162, 120.71088030000001], [24.66798099, 120.7193013], [24.6957824, 120.7481466], [24.69337071, 120.7520852], [24.76379348, 120.8198047], [24.76866842, 120.81486310000001], [24.77736421, 120.82411609999998]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_df487d40fd5248b69ac8a23b2cd51cde = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_c79b665a3ef540f3bb0cdb97f7473b0b = $(`<div id="html_c79b665a3ef540f3bb0cdb97f7473b0b" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：苗栗縣1 </h5>             <h5>Area：34.7 </h5>             <h5>No：5</h5>             </p>             </div>`)[0];
+                popup_df487d40fd5248b69ac8a23b2cd51cde.setContent(html_c79b665a3ef540f3bb0cdb97f7473b0b);
+            
+
+            polygon_4c27a989d9d54273b74f8e6f132edf17.bindPopup(popup_df487d40fd5248b69ac8a23b2cd51cde)
+            ;
+
+            
+        
+    
+        polygon_4c27a989d9d54273b74f8e6f132edf17.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：苗栗縣1 </h5>
+            <h5>Area：34.7 </h5>
+            <h5>No：5</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_e3c0fdb777f84c9dacadb019a12700ce = L.polygon(
+                [[24.67274026, 120.71034170000001], [24.65177141, 120.6941507], [24.63967931, 120.69], [24.61073638, 120.67139569999999], [24.58546578, 120.6605405], [24.58310093, 120.6692898], [24.60309271, 120.67752959999999], [24.61313589, 120.7017085], [24.60969031, 120.70809960000001], [24.61488515, 120.71210649999999], [24.62781172, 120.6913886], [24.63873402, 120.6952633], [24.64474173, 120.7093953], [24.63567116, 120.73122849999999], [24.64846905, 120.7426293], [24.65595365, 120.7287382], [24.65970434, 120.7317947]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_f51de3d2756c4c5785d5890a1645f50a = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_9be96b66dfd44929a85ba4dfdb9a5379 = $(`<div id="html_9be96b66dfd44929a85ba4dfdb9a5379" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：苗栗縣2 </h5>             <h5>Area：20.8 </h5>             <h5>No：6</h5>             </p>             </div>`)[0];
+                popup_f51de3d2756c4c5785d5890a1645f50a.setContent(html_9be96b66dfd44929a85ba4dfdb9a5379);
+            
+
+            polygon_e3c0fdb777f84c9dacadb019a12700ce.bindPopup(popup_f51de3d2756c4c5785d5890a1645f50a)
+            ;
+
+            
+        
+    
+        polygon_e3c0fdb777f84c9dacadb019a12700ce.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：苗栗縣2 </h5>
+            <h5>Area：20.8 </h5>
+            <h5>No：6</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_0ab415439bd14c0298c13f05d55b9a3c = L.polygon(
+                [[24.4577978, 120.54262250000001], [24.44436549, 120.5331371], [24.45242068, 120.58556340000001], [24.48665358, 120.5989945]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_821ce31f852a4a2ab397caab8d6aa150 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_7bb3f1c0bf994a83a8a16a9595d51a9a = $(`<div id="html_7bb3f1c0bf994a83a8a16a9595d51a9a" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：台中市1 </h5>             <h5>Area：36.8 </h5>             <h5>No：7</h5>             </p>             </div>`)[0];
+                popup_821ce31f852a4a2ab397caab8d6aa150.setContent(html_7bb3f1c0bf994a83a8a16a9595d51a9a);
+            
+
+            polygon_0ab415439bd14c0298c13f05d55b9a3c.bindPopup(popup_821ce31f852a4a2ab397caab8d6aa150)
+            ;
+
+            
+        
+    
+        polygon_0ab415439bd14c0298c13f05d55b9a3c.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：台中市1 </h5>
+            <h5>Area：36.8 </h5>
+            <h5>No：7</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_cd0b46cef34541a28d440a646837e8f2 = L.polygon(
+                [[24.40613563, 120.51764969999999], [24.35923831, 120.47579070000002], [24.32776411, 120.49995009999999], [24.37554335, 120.53500990000002], [24.38121202, 120.52520829999999], [24.39053014, 120.53176529999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_bc8eac02c9864be8a30ae9d40c06630d = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_49b71eece8624a6cae1ee9ec765f1e3c = $(`<div id="html_49b71eece8624a6cae1ee9ec765f1e3c" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：nan </h5>             <h5>Area：nan </h5>             <h5>No：7-2</h5>             </p>             </div>`)[0];
+                popup_bc8eac02c9864be8a30ae9d40c06630d.setContent(html_49b71eece8624a6cae1ee9ec765f1e3c);
+            
+
+            polygon_cd0b46cef34541a28d440a646837e8f2.bindPopup(popup_bc8eac02c9864be8a30ae9d40c06630d)
+            ;
+
+            
+        
+    
+        polygon_cd0b46cef34541a28d440a646837e8f2.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：nan </h5>
+            <h5>Area：nan </h5>
+            <h5>No：7-2</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_742744020d6e4ce6ae1ef2ff59d52c97 = L.polygon(
+                [[24.39901566, 120.2610571], [24.31186484, 120.2027136], [24.29514591, 120.2910952], [24.38153341, 120.359576], [24.39706103, 120.36560290000001]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_1de4e5a2ff064ca99b81390c30f1c3e8 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_a1ab7db2aab04730aaeb943dc38015f3 = $(`<div id="html_a1ab7db2aab04730aaeb943dc38015f3" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：台中市2 </h5>             <h5>Area：112.5 </h5>             <h5>No：8</h5>             </p>             </div>`)[0];
+                popup_1de4e5a2ff064ca99b81390c30f1c3e8.setContent(html_a1ab7db2aab04730aaeb943dc38015f3);
+            
+
+            polygon_742744020d6e4ce6ae1ef2ff59d52c97.bindPopup(popup_1de4e5a2ff064ca99b81390c30f1c3e8)
+            ;
+
+            
+        
+    
+        polygon_742744020d6e4ce6ae1ef2ff59d52c97.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：台中市2 </h5>
+            <h5>Area：112.5 </h5>
+            <h5>No：8</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_5c540b070c174865aa878fb1cbbbcd7b = L.polygon(
+                [[24.34304938, 119.9873206], [24.32377498, 119.94935770000001], [24.34563248, 119.8802335], [24.26952569, 119.78996299999999], [24.26204106, 119.95309740000002], [24.34141068, 120.0070168]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_92e0f4a6aaf44ab5a8aba3a2ead5c9b6 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_1fc07e3eba8a48d3b6e4e46499880800 = $(`<div id="html_1fc07e3eba8a48d3b6e4e46499880800" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_1 </h5>             <h5>Area：120.7 </h5>             <h5>No：9</h5>             </p>             </div>`)[0];
+                popup_92e0f4a6aaf44ab5a8aba3a2ead5c9b6.setContent(html_1fc07e3eba8a48d3b6e4e46499880800);
+            
+
+            polygon_5c540b070c174865aa878fb1cbbbcd7b.bindPopup(popup_92e0f4a6aaf44ab5a8aba3a2ead5c9b6)
+            ;
+
+            
+        
+    
+        polygon_5c540b070c174865aa878fb1cbbbcd7b.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_1 </h5>
+            <h5>Area：120.7 </h5>
+            <h5>No：9</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_df176973bc5640658f05d90895ab6265 = L.polygon(
+                [[24.34141068, 120.0070168], [24.26204106, 119.95309740000002], [24.25556768, 120.0911879], [24.33036997, 120.1389098]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_b29b72ca5bcb4e4b92fe8f7bc99962ad = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_fdd3999d79b84b2b814600e713c4dc98 = $(`<div id="html_fdd3999d79b84b2b814600e713c4dc98" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_2 </h5>             <h5>Area：122.0 </h5>             <h5>No：10</h5>             </p>             </div>`)[0];
+                popup_b29b72ca5bcb4e4b92fe8f7bc99962ad.setContent(html_fdd3999d79b84b2b814600e713c4dc98);
+            
+
+            polygon_df176973bc5640658f05d90895ab6265.bindPopup(popup_b29b72ca5bcb4e4b92fe8f7bc99962ad)
+            ;
+
+            
+        
+    
+        polygon_df176973bc5640658f05d90895ab6265.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_2 </h5>
+            <h5>Area：122.0 </h5>
+            <h5>No：10</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_64ba11cb718e417b8229420928bc12bc = L.polygon(
+                [[24.26952569, 119.78996299999999], [24.11888824, 119.6117828], [24.06089622, 119.66473400000001], [24.26870201, 119.80810520000001]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_dcb86e3c94b644f2820c6c40d2a64d5d = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_8880a6bfe1014ce39c49adb00d12c942 = $(`<div id="html_8880a6bfe1014ce39c49adb00d12c942" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_3 </h5>             <h5>Area：128.6 </h5>             <h5>No：11</h5>             </p>             </div>`)[0];
+                popup_dcb86e3c94b644f2820c6c40d2a64d5d.setContent(html_8880a6bfe1014ce39c49adb00d12c942);
+            
+
+            polygon_64ba11cb718e417b8229420928bc12bc.bindPopup(popup_dcb86e3c94b644f2820c6c40d2a64d5d)
+            ;
+
+            
+        
+    
+        polygon_64ba11cb718e417b8229420928bc12bc.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_3 </h5>
+            <h5>Area：128.6 </h5>
+            <h5>No：11</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_ea7495e62cd445e58af747c18ca21f7a = L.polygon(
+                [[24.26870201, 119.80810520000001], [24.19884944, 119.75985179999999], [24.19270554, 119.9060581], [24.26204106, 119.95309740000002]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_48ffd94b52e94d25b00b16bdf34fa221 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_1cb2c837be824a758e36ca11329372e4 = $(`<div id="html_1cb2c837be824a758e36ca11329372e4" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_4 </h5>             <h5>Area：117.4 </h5>             <h5>No：12</h5>             </p>             </div>`)[0];
+                popup_48ffd94b52e94d25b00b16bdf34fa221.setContent(html_1cb2c837be824a758e36ca11329372e4);
+            
+
+            polygon_ea7495e62cd445e58af747c18ca21f7a.bindPopup(popup_48ffd94b52e94d25b00b16bdf34fa221)
+            ;
+
+            
+        
+    
+        polygon_ea7495e62cd445e58af747c18ca21f7a.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_4 </h5>
+            <h5>Area：117.4 </h5>
+            <h5>No：12</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_8c32027ab92e40ee85f8d20011ff1297 = L.polygon(
+                [[24.26204106, 119.95309740000002], [24.19270554, 119.9060581], [24.1866376, 120.04726869999999], [24.25556768, 120.0911879]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_a2e85971327041f8aecda43e7e48c427 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_22ed17a5b2c2489680604bd71e914dd1 = $(`<div id="html_22ed17a5b2c2489680604bd71e914dd1" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_5 </h5>             <h5>Area：111.8 </h5>             <h5>No：13</h5>             </p>             </div>`)[0];
+                popup_a2e85971327041f8aecda43e7e48c427.setContent(html_22ed17a5b2c2489680604bd71e914dd1);
+            
+
+            polygon_8c32027ab92e40ee85f8d20011ff1297.bindPopup(popup_a2e85971327041f8aecda43e7e48c427)
+            ;
+
+            
+        
+    
+        polygon_8c32027ab92e40ee85f8d20011ff1297.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_5 </h5>
+            <h5>Area：111.8 </h5>
+            <h5>No：13</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_1b8fa4939ec84772af67d275066e86fd = L.polygon(
+                [[24.19884944, 119.75985179999999], [24.12371988, 119.7080212], [24.119106100000003, 119.85619059999999], [24.19270554, 119.9060581]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_1a883329abff47fda2a67f02a8422433 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_5a4036ebb19e4bd88bdeaef1e76e33f0 = $(`<div id="html_5a4036ebb19e4bd88bdeaef1e76e33f0" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_6 </h5>             <h5>Area：126.3 </h5>             <h5>No：14</h5>             </p>             </div>`)[0];
+                popup_1a883329abff47fda2a67f02a8422433.setContent(html_5a4036ebb19e4bd88bdeaef1e76e33f0);
+            
+
+            polygon_1b8fa4939ec84772af67d275066e86fd.bindPopup(popup_1a883329abff47fda2a67f02a8422433)
+            ;
+
+            
+        
+    
+        polygon_1b8fa4939ec84772af67d275066e86fd.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_6 </h5>
+            <h5>Area：126.3 </h5>
+            <h5>No：14</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_d1e5b0df85224824a3fa833711772fdb = L.polygon(
+                [[24.19270554, 119.9060581], [24.119106100000003, 119.85619059999999], [24.11444685, 120.00132959999999], [24.1866376, 120.04726869999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_0bb98a1888c74943bb8201fb87153953 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_0ace7da5097c408bbb507c8ad7f2c674 = $(`<div id="html_0ace7da5097c408bbb507c8ad7f2c674" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_7 </h5>             <h5>Area：120.4 </h5>             <h5>No：15</h5>             </p>             </div>`)[0];
+                popup_0bb98a1888c74943bb8201fb87153953.setContent(html_0ace7da5097c408bbb507c8ad7f2c674);
+            
+
+            polygon_d1e5b0df85224824a3fa833711772fdb.bindPopup(popup_0bb98a1888c74943bb8201fb87153953)
+            ;
+
+            
+        
+    
+        polygon_d1e5b0df85224824a3fa833711772fdb.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_7 </h5>
+            <h5>Area：120.4 </h5>
+            <h5>No：15</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_a99b7400793d494783b0e53891c5e6b8 = L.polygon(
+                [[24.12371988, 119.7080212], [24.06089622, 119.66473400000001], [24.04254681, 119.68147450000001], [24.04356135, 119.8050735], [24.119106100000003, 119.85619059999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_19a3f2d66e89432f83c367c5ed263362 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_6c1fdaf8221f461a8e3842f43afa04d2 = $(`<div id="html_6c1fdaf8221f461a8e3842f43afa04d2" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_8 </h5>             <h5>Area：131.1 </h5>             <h5>No：16</h5>             </p>             </div>`)[0];
+                popup_19a3f2d66e89432f83c367c5ed263362.setContent(html_6c1fdaf8221f461a8e3842f43afa04d2);
+            
+
+            polygon_a99b7400793d494783b0e53891c5e6b8.bindPopup(popup_19a3f2d66e89432f83c367c5ed263362)
+            ;
+
+            
+        
+    
+        polygon_a99b7400793d494783b0e53891c5e6b8.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_8 </h5>
+            <h5>Area：131.1 </h5>
+            <h5>No：16</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_95845a1bee5743359ccd9dbdc7cccb0a = L.polygon(
+                [[24.119106100000003, 119.85619059999999], [24.04356135, 119.8050735], [24.04467159, 119.95698349999999], [24.11444685, 120.00132959999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_e14093ebeee14655b2285be86f5bbf5d = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_d8006a93ebab4ace866914359c26ad4f = $(`<div id="html_d8006a93ebab4ace866914359c26ad4f" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣1_9 </h5>             <h5>Area：122.5 </h5>             <h5>No：17</h5>             </p>             </div>`)[0];
+                popup_e14093ebeee14655b2285be86f5bbf5d.setContent(html_d8006a93ebab4ace866914359c26ad4f);
+            
+
+            polygon_95845a1bee5743359ccd9dbdc7cccb0a.bindPopup(popup_e14093ebeee14655b2285be86f5bbf5d)
+            ;
+
+            
+        
+    
+        polygon_95845a1bee5743359ccd9dbdc7cccb0a.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣1_9 </h5>
+            <h5>Area：122.5 </h5>
+            <h5>No：17</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_659ad690206d4c75aecd3988416a7fdb = L.polygon(
+                [[24.04254681, 119.68147450000001], [24.03037004, 119.67632520000001], [23.968955899999997, 119.8137811], [24.04395969, 119.857251]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_4f0446b639dd452286d3602bcb230bac = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_d69b3bab804d43b490a9db725d5f355c = $(`<div id="html_d69b3bab804d43b490a9db725d5f355c" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣2_1 </h5>             <h5>Area：85.2 </h5>             <h5>No：18</h5>             </p>             </div>`)[0];
+                popup_4f0446b639dd452286d3602bcb230bac.setContent(html_d69b3bab804d43b490a9db725d5f355c);
+            
+
+            polygon_659ad690206d4c75aecd3988416a7fdb.bindPopup(popup_4f0446b639dd452286d3602bcb230bac)
+            ;
+
+            
+        
+    
+        polygon_659ad690206d4c75aecd3988416a7fdb.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣2_1 </h5>
+            <h5>Area：85.2 </h5>
+            <h5>No：18</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_df3547fe075246b3b0eeb1f20c7e5c8c = L.polygon(
+                [[24.04395969, 119.857251], [23.968955899999997, 119.8137811], [23.93578769, 119.8878456], [24.04467159, 119.95698349999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_3875b4d61d9f434fbecf73ea85f24aaa = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_926ef650385d4230b19bb8f6978e5fe8 = $(`<div id="html_926ef650385d4230b19bb8f6978e5fe8" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣2_2 </h5>             <h5>Area：100.5 </h5>             <h5>No：19</h5>             </p>             </div>`)[0];
+                popup_3875b4d61d9f434fbecf73ea85f24aaa.setContent(html_926ef650385d4230b19bb8f6978e5fe8);
+            
+
+            polygon_df3547fe075246b3b0eeb1f20c7e5c8c.bindPopup(popup_3875b4d61d9f434fbecf73ea85f24aaa)
+            ;
+
+            
+        
+    
+        polygon_df3547fe075246b3b0eeb1f20c7e5c8c.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣2_2 </h5>
+            <h5>Area：100.5 </h5>
+            <h5>No：19</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_5d9491f90a36493aaef73f3a574e49b5 = L.polygon(
+                [[24.31186484, 120.2027136], [24.32616133, 120.1584352], [24.25432557, 120.1126945], [24.23291486, 120.24183529999999], [24.29514591, 120.2910952]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_d597c05109bc4c5b904b2478e2d45c82 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_aff0f93c406a4e2fa8981e9f2fd83581 = $(`<div id="html_aff0f93c406a4e2fa8981e9f2fd83581" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣3_1 </h5>             <h5>Area：109.7 </h5>             <h5>No：20</h5>             </p>             </div>`)[0];
+                popup_d597c05109bc4c5b904b2478e2d45c82.setContent(html_aff0f93c406a4e2fa8981e9f2fd83581);
+            
+
+            polygon_5d9491f90a36493aaef73f3a574e49b5.bindPopup(popup_d597c05109bc4c5b904b2478e2d45c82)
+            ;
+
+            
+        
+    
+        polygon_5d9491f90a36493aaef73f3a574e49b5.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣3_1 </h5>
+            <h5>Area：109.7 </h5>
+            <h5>No：20</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_e5d5ea4902084b48a645bd3291f6513f = L.polygon(
+                [[24.25432557, 120.1126945], [24.17899156, 120.06478929999999], [24.16398794, 120.1873446], [24.23291486, 120.24183529999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_d917e9a35386419f84755721e60c05dc = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_7f1d4aa63ae34539a3840b30ad7bd76e = $(`<div id="html_7f1d4aa63ae34539a3840b30ad7bd76e" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣3_2 </h5>             <h5>Area：112.6 </h5>             <h5>No：21</h5>             </p>             </div>`)[0];
+                popup_d917e9a35386419f84755721e60c05dc.setContent(html_7f1d4aa63ae34539a3840b30ad7bd76e);
+            
+
+            polygon_e5d5ea4902084b48a645bd3291f6513f.bindPopup(popup_d917e9a35386419f84755721e60c05dc)
+            ;
+
+            
+        
+    
+        polygon_e5d5ea4902084b48a645bd3291f6513f.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣3_2 </h5>
+            <h5>Area：112.6 </h5>
+            <h5>No：21</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_6560ab0e2b4b46f282c4a1390b005e82 = L.polygon(
+                [[24.17899156, 120.06478929999999], [24.11706966, 120.025461], [24.10617674, 120.14169740000001], [24.16398794, 120.1873446]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_5a18cef0f055488482bde773bd83570c = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_19685291d1b4479e8d3926a92a1ca533 = $(`<div id="html_19685291d1b4479e8d3926a92a1ca533" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣3_3 </h5>             <h5>Area：86.7 </h5>             <h5>No：22</h5>             </p>             </div>`)[0];
+                popup_5a18cef0f055488482bde773bd83570c.setContent(html_19685291d1b4479e8d3926a92a1ca533);
+            
+
+            polygon_6560ab0e2b4b46f282c4a1390b005e82.bindPopup(popup_5a18cef0f055488482bde773bd83570c)
+            ;
+
+            
+        
+    
+        polygon_6560ab0e2b4b46f282c4a1390b005e82.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣3_3 </h5>
+            <h5>Area：86.7 </h5>
+            <h5>No：22</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_4e235312287a423bba2a377f92385bcc = L.polygon(
+                [[24.11706966, 120.025461], [24.04531599, 119.97994209999999], [24.04554297, 120.09387609999999], [24.10617674, 120.14169740000001]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_9d48397c1d264c9387c8befa5e8399ad = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_f3ac99b084854b2ba900c1c192a4120a = $(`<div id="html_f3ac99b084854b2ba900c1c192a4120a" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣3_4 </h5>             <h5>Area：88.6 </h5>             <h5>No：23</h5>             </p>             </div>`)[0];
+                popup_9d48397c1d264c9387c8befa5e8399ad.setContent(html_f3ac99b084854b2ba900c1c192a4120a);
+            
+
+            polygon_4e235312287a423bba2a377f92385bcc.bindPopup(popup_9d48397c1d264c9387c8befa5e8399ad)
+            ;
+
+            
+        
+    
+        polygon_4e235312287a423bba2a377f92385bcc.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣3_4 </h5>
+            <h5>Area：88.6 </h5>
+            <h5>No：23</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_7d3e61a0a4824d42ac1ffd4a5d62a5cd = L.polygon(
+                [[24.04531599, 119.97994209999999], [23.98994768, 119.94485690000002], [23.96037293, 120.0274517], [24.04554297, 120.09387609999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_4d8ed22d9f874c4192ae2c10c395fb13 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_203c3e9577db42cea53754335579ac63 = $(`<div id="html_203c3e9577db42cea53754335579ac63" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣4_1 </h5>             <h5>Area：86.2 </h5>             <h5>No：24</h5>             </p>             </div>`)[0];
+                popup_4d8ed22d9f874c4192ae2c10c395fb13.setContent(html_203c3e9577db42cea53754335579ac63);
+            
+
+            polygon_7d3e61a0a4824d42ac1ffd4a5d62a5cd.bindPopup(popup_4d8ed22d9f874c4192ae2c10c395fb13)
+            ;
+
+            
+        
+    
+        polygon_7d3e61a0a4824d42ac1ffd4a5d62a5cd.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣4_1 </h5>
+            <h5>Area：86.2 </h5>
+            <h5>No：24</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_fadeca279f614ac282634a3505b8b4e8 = L.polygon(
+                [[23.98994768, 119.94485690000002], [23.91493257, 119.8973764], [23.86580935, 119.95382659999999], [23.96037293, 120.0274517]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_e4feaa8fd8fb41d19630dd3b82ee74ef = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_342377e8fbf144f98fefd52b14d04e2d = $(`<div id="html_342377e8fbf144f98fefd52b14d04e2d" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣4_2 </h5>             <h5>Area：93.3 </h5>             <h5>No：25</h5>             </p>             </div>`)[0];
+                popup_e4feaa8fd8fb41d19630dd3b82ee74ef.setContent(html_342377e8fbf144f98fefd52b14d04e2d);
+            
+
+            polygon_fadeca279f614ac282634a3505b8b4e8.bindPopup(popup_e4feaa8fd8fb41d19630dd3b82ee74ef)
+            ;
+
+            
+        
+    
+        polygon_fadeca279f614ac282634a3505b8b4e8.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣4_2 </h5>
+            <h5>Area：93.3 </h5>
+            <h5>No：25</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_90efe128cdcf49e1881949445f380680 = L.polygon(
+                [[24.12248912, 120.1782791], [24.04548864, 120.11774890000001], [24.04620474, 120.2136031], [24.0463658, 120.24561070000001], [24.04860014, 120.2530001], [24.04740015, 120.27950009999999], [24.09896479, 120.3257801]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_7da94c753d8c4210bd5380b702109d3e = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_cf8482b2147c475d898c3248406e559c = $(`<div id="html_cf8482b2147c475d898c3248406e559c" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣5 </h5>             <h5>Area：118.6 </h5>             <h5>No：26</h5>             </p>             </div>`)[0];
+                popup_7da94c753d8c4210bd5380b702109d3e.setContent(html_cf8482b2147c475d898c3248406e559c);
+            
+
+            polygon_90efe128cdcf49e1881949445f380680.bindPopup(popup_7da94c753d8c4210bd5380b702109d3e)
+            ;
+
+            
+        
+    
+        polygon_90efe128cdcf49e1881949445f380680.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣5 </h5>
+            <h5>Area：118.6 </h5>
+            <h5>No：26</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_249b03de69f9448bb86690015ff2435e = L.polygon(
+                [[24.04548864, 120.11774890000001], [23.9647256, 120.0547818], [23.95808643, 120.14926299999999], [24.04620474, 120.2136031]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_1196fe7b21064772a69692d6bd53826d = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_b48eafc7175448a3abbf08a9fae591d0 = $(`<div id="html_b48eafc7175448a3abbf08a9fae591d0" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣6_1 </h5>             <h5>Area：92.7 </h5>             <h5>No：27</h5>             </p>             </div>`)[0];
+                popup_1196fe7b21064772a69692d6bd53826d.setContent(html_b48eafc7175448a3abbf08a9fae591d0);
+            
+
+            polygon_249b03de69f9448bb86690015ff2435e.bindPopup(popup_1196fe7b21064772a69692d6bd53826d)
+            ;
+
+            
+        
+    
+        polygon_249b03de69f9448bb86690015ff2435e.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣6_1 </h5>
+            <h5>Area：92.7 </h5>
+            <h5>No：27</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_b4754e3842ec4d6d995a3db8f25286e8 = L.polygon(
+                [[23.9647256, 120.0547818], [23.879203, 119.98820890000002], [23.86573787, 120.0737743], [23.95808643, 120.14926299999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_a9b29585f3ce45018e4d216331bddb7a = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_6fe8a0c24f6441fb8ec5f1769ac23e81 = $(`<div id="html_6fe8a0c24f6441fb8ec5f1769ac23e81" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣6_2 </h5>             <h5>Area：98.3 </h5>             <h5>No：28</h5>             </p>             </div>`)[0];
+                popup_a9b29585f3ce45018e4d216331bddb7a.setContent(html_6fe8a0c24f6441fb8ec5f1769ac23e81);
+            
+
+            polygon_b4754e3842ec4d6d995a3db8f25286e8.bindPopup(popup_a9b29585f3ce45018e4d216331bddb7a)
+            ;
+
+            
+        
+    
+        polygon_b4754e3842ec4d6d995a3db8f25286e8.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣6_2 </h5>
+            <h5>Area：98.3 </h5>
+            <h5>No：28</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_82f3558186524dea9b1b942de153fe2b = L.polygon(
+                [[23.94540359, 120.13888770000001], [23.86573787, 120.0737743], [23.85101131, 120.1669895], [23.93178718, 120.22305559999998]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_7aff010acdc043f5a03e291339876c85 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_507f81284e484514881b710be401bc72 = $(`<div id="html_507f81284e484514881b710be401bc72" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：彰化縣6_3 </h5>             <h5>Area：89.9 </h5>             <h5>No：29</h5>             </p>             </div>`)[0];
+                popup_7aff010acdc043f5a03e291339876c85.setContent(html_507f81284e484514881b710be401bc72);
+            
+
+            polygon_82f3558186524dea9b1b942de153fe2b.bindPopup(popup_7aff010acdc043f5a03e291339876c85)
+            ;
+
+            
+        
+    
+        polygon_82f3558186524dea9b1b942de153fe2b.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：彰化縣6_3 </h5>
+            <h5>Area：89.9 </h5>
+            <h5>No：29</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_f7b683257ca64265bbcbd52bf1c1d774 = L.polygon(
+                [[23.879203, 119.98820890000002], [23.81640107, 119.9649165], [23.79717606, 120.11228529999998], [23.85101131, 120.1669895]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_b4fe933eac744420972a3c9a9bc93e04 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_4bb10f98899e4afabf89282e03ad6476 = $(`<div id="html_4bb10f98899e4afabf89282e03ad6476" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：雲林縣1_1 </h5>             <h5>Area：117.8 </h5>             <h5>No：30</h5>             </p>             </div>`)[0];
+                popup_b4fe933eac744420972a3c9a9bc93e04.setContent(html_4bb10f98899e4afabf89282e03ad6476);
+            
+
+            polygon_f7b683257ca64265bbcbd52bf1c1d774.bindPopup(popup_b4fe933eac744420972a3c9a9bc93e04)
+            ;
+
+            
+        
+    
+        polygon_f7b683257ca64265bbcbd52bf1c1d774.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：雲林縣1_1 </h5>
+            <h5>Area：117.8 </h5>
+            <h5>No：30</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_3de6c4c0faad47a2afc4cb30934000da = L.polygon(
+                [[23.81640107, 119.9649165], [23.78997737, 119.9551231], [23.73825108, 119.9627912], [23.72782756, 120.0819756], [23.78209708, 120.0969744], [23.79717606, 120.11228529999998]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_8f679b1cde574716a1216e9f6c5638f8 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_98600735fcb844279dda67c380d1f235 = $(`<div id="html_98600735fcb844279dda67c380d1f235" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：雲林縣1_2 </h5>             <h5>Area：114.3 </h5>             <h5>No：31</h5>             </p>             </div>`)[0];
+                popup_8f679b1cde574716a1216e9f6c5638f8.setContent(html_98600735fcb844279dda67c380d1f235);
+            
+
+            polygon_3de6c4c0faad47a2afc4cb30934000da.bindPopup(popup_8f679b1cde574716a1216e9f6c5638f8)
+            ;
+
+            
+        
+    
+        polygon_3de6c4c0faad47a2afc4cb30934000da.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：雲林縣1_2 </h5>
+            <h5>Area：114.3 </h5>
+            <h5>No：31</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_ec30afe5e7924bc68c0f1f08519c97da = L.polygon(
+                [[23.73825108, 119.9627912], [23.6522003, 119.97553229999998], [23.65323079, 120.06137849999999], [23.72782756, 120.0819756]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_2e6a5e06636047ec9b7b732877abf785 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_c49d8c3d3b37478893db920b41f05fce = $(`<div id="html_c49d8c3d3b37478893db920b41f05fce" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：雲林縣1_3 </h5>             <h5>Area：93.2 </h5>             <h5>No：32</h5>             </p>             </div>`)[0];
+                popup_2e6a5e06636047ec9b7b732877abf785.setContent(html_c49d8c3d3b37478893db920b41f05fce);
+            
+
+            polygon_ec30afe5e7924bc68c0f1f08519c97da.bindPopup(popup_2e6a5e06636047ec9b7b732877abf785)
+            ;
+
+            
+        
+    
+        polygon_ec30afe5e7924bc68c0f1f08519c97da.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：雲林縣1_3 </h5>
+            <h5>Area：93.2 </h5>
+            <h5>No：32</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_fc0f36edc7314ae1ab734af25590e67d = L.polygon(
+                [[23.23796475, 119.97569750000001], [23.18014377, 119.97718770000002], [23.1806546, 120.05835220000002], [23.23812455, 120.06984569999999]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_49e1968be7e84b3fa3af8295f508eaf2 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_a2b00f94702f40259611cd868d3f3a38 = $(`<div id="html_a2b00f94702f40259611cd868d3f3a38" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：台南市 </h5>             <h5>Area：57.3 </h5>             <h5>No：33</h5>             </p>             </div>`)[0];
+                popup_49e1968be7e84b3fa3af8295f508eaf2.setContent(html_a2b00f94702f40259611cd868d3f3a38);
+            
+
+            polygon_fc0f36edc7314ae1ab734af25590e67d.bindPopup(popup_49e1968be7e84b3fa3af8295f508eaf2)
+            ;
+
+            
+        
+    
+        polygon_fc0f36edc7314ae1ab734af25590e67d.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：台南市 </h5>
+            <h5>Area：57.3 </h5>
+            <h5>No：33</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_0c6f2ca27a5d432bada6097d1ba167fa = L.polygon(
+                [[22.90663166, 120.1198848], [22.89315734, 120.11766090000002], [22.88328071, 120.09382590000001], [22.85486982, 120.110643], [22.81630291, 120.13345840000001], [22.82123266, 120.15013710000001], [22.86180548, 120.1291358], [22.86664956, 120.1387635], [22.88469717, 120.1309015], [22.89128292, 120.14668200000001], [22.86398874, 120.1651635], [22.87847147, 120.18650659999999], [22.89662458, 120.1797096], [22.89906401, 120.1685547], [22.90753816, 120.16181]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_1deaf8cf98b948d9b3635c53d1e384fa = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_cb0de545f5c844b7aec9faf597ed55f0 = $(`<div id="html_cb0de545f5c844b7aec9faf597ed55f0" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：高雄市1 </h5>             <h5>Area：38.8 </h5>             <h5>No：34</h5>             </p>             </div>`)[0];
+                popup_1deaf8cf98b948d9b3635c53d1e384fa.setContent(html_cb0de545f5c844b7aec9faf597ed55f0);
+            
+
+            polygon_0c6f2ca27a5d432bada6097d1ba167fa.bindPopup(popup_1deaf8cf98b948d9b3635c53d1e384fa)
+            ;
+
+            
+        
+    
+        polygon_0c6f2ca27a5d432bada6097d1ba167fa.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：高雄市1 </h5>
+            <h5>Area：38.8 </h5>
+            <h5>No：34</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_e551fa9c34e54594a304fe9d6922c99c = L.polygon(
+                [[22.76397725, 120.15073829999999], [22.75287318, 120.1519544], [22.74910416, 120.1412659], [22.72177396, 120.1490139], [22.73562698, 120.22105630000001], [22.77525085, 120.2092652]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_c9b31962ee4d497bac51823cb84234d5 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_2dd51dcfb11844b1b95e66c72062dff7 = $(`<div id="html_2dd51dcfb11844b1b95e66c72062dff7" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：高雄市2 </h5>             <h5>Area：32.5 </h5>             <h5>No：35</h5>             </p>             </div>`)[0];
+                popup_c9b31962ee4d497bac51823cb84234d5.setContent(html_2dd51dcfb11844b1b95e66c72062dff7);
+            
+
+            polygon_e551fa9c34e54594a304fe9d6922c99c.bindPopup(popup_c9b31962ee4d497bac51823cb84234d5)
+            ;
+
+            
+        
+    
+        polygon_e551fa9c34e54594a304fe9d6922c99c.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：高雄市2 </h5>
+            <h5>Area：32.5 </h5>
+            <h5>No：35</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_edb9dcb10d874772b3f8d21085ec5cc1 = L.polygon(
+                [[22.44314239, 120.4293486], [22.39364876, 120.4391041], [22.42698064, 120.4809866], [22.45156819, 120.44489080000001]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_5e165a0268cd4140880ff5aa70e1b318 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_dd18d9f41d824e6fa726dc5f96646c5b = $(`<div id="html_dd18d9f41d824e6fa726dc5f96646c5b" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：屏東縣 </h5>             <h5>Area：32.5 </h5>             <h5>No：36</h5>             </p>             </div>`)[0];
+                popup_5e165a0268cd4140880ff5aa70e1b318.setContent(html_dd18d9f41d824e6fa726dc5f96646c5b);
+            
+
+            polygon_edb9dcb10d874772b3f8d21085ec5cc1.bindPopup(popup_5e165a0268cd4140880ff5aa70e1b318)
+            ;
+
+            
+        
+    
+        polygon_edb9dcb10d874772b3f8d21085ec5cc1.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：屏東縣 </h5>
+            <h5>Area：32.5 </h5>
+            <h5>No：36</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var polygon_ca599ddfd3e5423ca238844da7d0f640 = L.polygon(
+                [[22.38989188, 120.5098976], [22.35691432, 120.56671850000001], [22.37589089, 120.5779566], [22.40202048, 120.5339616]],
+                {
+  "bubblingMouseEvents": true,
+  "color": "red",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "red",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 1
+}
+                )
+                .addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+    
+            var popup_ab46500fc1224aeea54b0d2045ca5b48 = L.popup({maxWidth: '120'
+            
+            });
+
+            
+                var html_e1c3a1840f354e8aab25bc03b72d3f88 = $(`<div id="html_e1c3a1840f354e8aab25bc03b72d3f88" style="width: 100.0%; height: 100.0%;">             <p>             <h5>City：nan </h5>             <h5>Area：nan </h5>             <h5>No：36-2</h5>             </p>             </div>`)[0];
+                popup_ab46500fc1224aeea54b0d2045ca5b48.setContent(html_e1c3a1840f354e8aab25bc03b72d3f88);
+            
+
+            polygon_ca599ddfd3e5423ca238844da7d0f640.bindPopup(popup_ab46500fc1224aeea54b0d2045ca5b48)
+            ;
+
+            
+        
+    
+        polygon_ca599ddfd3e5423ca238844da7d0f640.bindTooltip(
+            `<div>`
+            + `
+            <p>
+            <h5>City：nan </h5>
+            <h5>Area：nan </h5>
+            <h5>No：36-2</h5>
+            </p>
+            ` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+        var tile_layer_ea205d8a371444b69a86cb09983f5d39 = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+} );
+
+        var mini_map_2f110b66a23f4f06ba64ac3e0f3b7e9a = new L.Control.MiniMap( tile_layer_ea205d8a371444b69a86cb09983f5d39,
+         {
+  "autoToggleDisplay": false,
+  "centerFixed": false,
+  "collapsedHeight": 25,
+  "collapsedWidth": 25,
+  "height": 150,
+  "minimized": false,
+  "position": "bottomright",
+  "toggleDisplay": true,
+  "width": 150,
+  "zoomAnimation": false,
+  "zoomLevelFixed": null,
+  "zoomLevelOffset": -4
+});
+        map_4765046cbb984dabb9a72f3fa553d4c2.addControl(mini_map_2f110b66a23f4f06ba64ac3e0f3b7e9a);
+
+        
+    var tile_layer_864e1a838590496f94363877e53967f9 = L.tileLayer(
+        'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+    var tile_layer_2a3bf95e2bc44265a06aa9ffbc1f931e = L.tileLayer(
+        'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+    var tile_layer_1850a13abd09473f86f7905f6bd4aa7b = L.tileLayer(
+        'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+    var tile_layer_f51040717e9f42dc854fdb11bf5b7d50 = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+    var tile_layer_2da6cbdf51934ada9e6e43bc535cc0fd = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 0,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+    
+            var feature_group_62b40d6b61424c05bbc0232688bffdb6 = L.featureGroup(
+                ).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+        
+    
+            var layer_control_924b82f2d3f3493c9605fda66ec9b1f7 = {
+                base_layers : { "openstreetmap" : tile_layer_3ada11cd6c774e68b8f10868b991f5c1,"stamenterrain" : tile_layer_864e1a838590496f94363877e53967f9,"stamentoner" : tile_layer_2a3bf95e2bc44265a06aa9ffbc1f931e,"stamenwatercolor" : tile_layer_1850a13abd09473f86f7905f6bd4aa7b,"cartodbpositron" : tile_layer_f51040717e9f42dc854fdb11bf5b7d50,"cartodbdark_matter" : tile_layer_2da6cbdf51934ada9e6e43bc535cc0fd, },
+                overlays : { "Some icons" : feature_group_62b40d6b61424c05bbc0232688bffdb6, }
+                };
+            L.control.layers(
+                layer_control_924b82f2d3f3493c9605fda66ec9b1f7.base_layers,
+                layer_control_924b82f2d3f3493c9605fda66ec9b1f7.overlays,
+                {position: 'topright',
+                 collapsed: true,
+                 autoZIndex: true
+                }).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            
+                tile_layer_864e1a838590496f94363877e53967f9.remove();
+                tile_layer_2a3bf95e2bc44265a06aa9ffbc1f931e.remove();
+                tile_layer_1850a13abd09473f86f7905f6bd4aa7b.remove();
+                tile_layer_f51040717e9f42dc854fdb11bf5b7d50.remove();
+                tile_layer_2da6cbdf51934ada9e6e43bc535cc0fd.remove();
+        
+    
+            var measure_control_1e707764d5064403affee6319190170d = new L.Control.Measure(
+            {"position": "topright", "primaryLengthUnit": "meters", "secondaryLengthUnit": "miles", "primaryAreaUnit": "sqmeters", "secondaryAreaUnit": "acres"});
+            map_4765046cbb984dabb9a72f3fa553d4c2.addControl(measure_control_1e707764d5064403affee6319190170d);
+
+        
+    
+            L.control.fullscreen({
+                position: 'topright',
+                title: 'Expand me',
+                titleCancel: 'Exit me',
+                forceSeparateButton: true,
+                }).addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            map_4765046cbb984dabb9a72f3fa553d4c2.on('enterFullscreen', function(){
+                console.log('entered fullscreen');
+            });
+
+        
+    
+
+        var mouse_position_c2985d50cf99417b91c4464c90f86737 = new L.Control.MousePosition(
+            {
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "position": "bottomleft",
+  "prefix": "",
+  "separator": " : "
+});
+        mouse_position_c2985d50cf99417b91c4464c90f86737.options["latFormatter"] = undefined;
+        mouse_position_c2985d50cf99417b91c4464c90f86737.options["lngFormatter"] = undefined;
+        map_4765046cbb984dabb9a72f3fa553d4c2.addControl(mouse_position_c2985d50cf99417b91c4464c90f86737);
+
+        
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {}
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(map_4765046cbb984dabb9a72f3fa553d4c2);
+            options.edit.featureGroup = drawnItems
+            var draw_control_a83e5d0024e84744be041681a15528dd = new L.Control.Draw(options).addTo(map_4765046cbb984dabb9a72f3fa553d4c2)
+            map_4765046cbb984dabb9a72f3fa553d4c2.on(L.Draw.Event.CREATED, function (event) {
+              var layer = event.layer,
+                  type = event.layerType,
+                  coords;
+              var coords = JSON.stringify(layer.toGeoJSON());
+              layer.on('click', function() {
+                alert(coords);
+                console.log(coords);
+                });
+               drawnItems.addLayer(layer);
+             });
+            map_4765046cbb984dabb9a72f3fa553d4c2.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            document.getElementById('export').onclick = function(e) {
+              var data = drawnItems.toGeoJSON();
+              var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+              document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+              document.getElementById('export').setAttribute(
+                'download',
+                "data.geojson"
+              );
+            }
+            
+</script>
