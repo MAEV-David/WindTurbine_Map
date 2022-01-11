@@ -11,4 +11,7 @@
 ### 座標
 這次基於TWD97二度分帶坐標值轉換為經緯度座標所繪製。
 
+## DENO
+https://maev-david.github.io/WindTurbine_Map/36_windTurbine_Region.html
+
 > 風場資料來源：[經濟部能源局](https://data.gov.tw/dataset/36681)
